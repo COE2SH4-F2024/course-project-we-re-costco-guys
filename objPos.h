@@ -17,8 +17,20 @@ class objPos
         objPos();
         objPos(int xPos, int yPos, char sym);
         
+        
         // Respect the rule of six / minimum four
         // [TODO] Implement the missing special member functions to meet the minimum four rule
+        //ok
+
+        objPos(const objPos& other);//for copy constr
+
+        objPos& operator=(const objPos& other); //for conpy assignment
+
+        objPos(objPos&& other) noexcept; //for move constr
+
+        objPos& operator=(objPos&& other) noexcept; //for move assignment op
+
+        ~objPos(); //destructor
         
         void setObjPos(objPos o);        
         void setObjPos(int xPos, int yPos, char sym);  
