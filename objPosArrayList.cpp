@@ -7,7 +7,7 @@
 //yeah okay
 
 
-//constructa
+//construct
 objPosArrayList::objPosArrayList(){
     aList = new objPos[ARRAY_MAX_CAP]; //give mem to array
 
@@ -71,6 +71,7 @@ void objPosArrayList::removeTail(){
     if(listSize == 0){
         return; //nothing to remove
     }
+    aList[listSize - 1] = objPos();
     --listSize; //just decrease the size of the list hehe
 }
 
