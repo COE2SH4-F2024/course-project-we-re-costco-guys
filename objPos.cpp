@@ -59,7 +59,7 @@ objPos& objPos::operator=(objPos&& other) noexcept
         other.pos = nullptr;
         symbol = other.symbol;
     }
-    return
+    return *this;
 }
 void objPos::setObjPos(objPos o)
 {
