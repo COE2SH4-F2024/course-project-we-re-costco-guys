@@ -8,8 +8,8 @@ You must watch the briefing video and read through the manual to engage in the d
 Section: [C02]
 
 Team Information
-Member 1 MacID: [zengw16]
-Member 1 StudentID: [400517473]
+Member 1 MacID: [sharml12]
+Member 1 StudentID: [400507432]
 
-Member 2 MacID: [Insert your macID here]
-Member 2 StudentID: [Insert your numerical student ID here]
+Member 2 MacID: [zengw16]
+Member 2 StudentID: [400517473]
