@@ -86,41 +86,47 @@ void DrawScreen(void)
 {
     MacUILib_clearScreen();    
 
+    //vars to control drawing 
     bool finished;
     int totRow = myGameMechs->getBoardSizeY();
     int totCol = myGameMechs->getBoardSizeX();
 
+//get players position in list of objpos objects
     objPosArrayList* playerBody = myPlayer->getPlayerPos();
     objPos tempBody;
 
+//get food positions
     objPosArrayList *temoFoodList = myFood->getFoodPos();
     objPos tempFoodPos;
 
+
+//go thru every cell of board
     for(int i = 0; i <totRow; i++){
         for(int j = 0; j < totCol; j++){
-            finished = false;
+            finished = false; //reset flag for current pos
+            //checks if current pos matches any section of player
             for (int k = 0; k < playerBody->getSize(); k++){
                 tempBody = playerBody->getElement(k);
                 if (tempBody.pos->x == j && tempBody.pos->y == i){
                     MacUILib_printf("%c",tempBody.symbol);
-                    finished = true;
+                    finished = true; //mark as drawn
                     break;
                 }
             }
-            if (!finished){
+            if (!finished){ //otherwise check if theres food there
                 for (int m = 0; m < temoFoodList->getSize(); m++){
                     tempFoodPos = temoFoodList->getElement(m);
                     if(tempFoodPos.pos->x == i && tempFoodPos.pos->y == j){
                         MacUILib_printf("%c", tempFoodPos.symbol);
-                        finished = true;
+                        finished = true; //mark as drawn
                         break;
                     }
                 }
             }
             if(finished){
-                continue;
+                continue; //if nothing is found here (no player or food)
             }
-            if(j == 0 || j == totCol -1 || i == 0 || i == totRow - 1){
+            if(j == 0 || j == totCol -1 || i == 0 || i == totRow - 1){ //to draw gameboard
                 if(j == totCol - 1){
                     MacUILib_printf("#\n");
                 }
@@ -135,6 +141,7 @@ void DrawScreen(void)
     }
     MacUILib_printf("Score: %d \n", myGameMechs->getScore());
 
+/*
     MacUILib_printf("=====DEBUG MESSAGES=====\n");
     MacUILib_printf("Player Positions:\n");
     for (int z = 0; z < playerBody->getSize(); z++){
@@ -142,8 +149,9 @@ void DrawScreen(void)
         MacUILib_printf("[%d,%d]\n", tempBody.pos->x, tempBody.pos->y);
     }
     MacUILib_printf("Board Size: %dx%d", myGameMechs->getBoardSizeX(), myGameMechs->getBoardSizeY());
-
+*/
 }
+
 
 void LoopDelay(void)
 {
